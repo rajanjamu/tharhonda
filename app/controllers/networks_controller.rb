@@ -3,6 +3,7 @@ class NetworksController < ApplicationController
 
   def index
     @networks = Network.all
+    @nretails = Nretail.all
   end
 
   def new

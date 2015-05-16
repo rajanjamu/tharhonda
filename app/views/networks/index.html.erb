@@ -1,3 +1,4 @@
+<div id="network-index">
 <h2>Networks</h2>
 <p><%= link_to('Home', root_path) %> / <%= link_to('Dashboard', retails_path) %> / Networks</p>
 
@@ -12,23 +13,20 @@
   <div role="tabpanel" class="tab-pane active" id="month">
     <div class="container-fluid">
 
-      <p></p>
-
       <div class="row">
-
-        <div class="col-md-6">
+        <div class="col-md-8 col-md-offset-2">
           <div class="panel panel-default">
             <!-- Default panel contents -->
             <div class="panel-heading">Retail</div>
 
             <!-- Table -->
-            <table class="table">
+            <table class="table table-hover">
               <thead>
                 <tr>
                   <th>Network</th>
-                  <th>Target</th>
-                  <th>Retail</th>
-                  <th>% Ach</th>
+                  <th class="center">Target</th>
+                  <th class="center">Retail</th>
+                  <th class="center">% Ach</th>
                 </tr>
               </thead>
               <tbody>
@@ -36,10 +34,10 @@
                   <tr>
                     <td><%= link_to(network.name, network) %></td>
                     <% target = Nretail.where(network_id: network, month_id: 4, year_id: 7).sum :target %>
-                    <td><%= target %></td>
+                    <td class="center"><%= target %></td>
                     <% retail = Nretail.where(network_id: network, month_id: 4, year_id: 7).sum :number %>
-                    <td><%= retail %></td>
-                    <td>
+                    <td class="center"><%= retail %></td>
+                    <td class="center">
                       <% if(target!=0) %>
                         <%= (retail*100)/target %> 
                       <% else %> 
@@ -50,16 +48,24 @@
                 <% end %>
                 <tr>
                   <th>Total</th>
-                  <th><%= Nretail.where(month_id: 4, year_id: 7).sum :target %></th>
-                  <th><%= Nretail.where(month_id: 4, year_id: 7).sum :number %></th>
-                  <th><%= (Nretail.where(month_id: 4, year_id: 7).sum :number)*100/(Nretail.where(month_id: 4, year_id: 7).sum :target) %></th>
+                  <th class="center"><%= Nretail.where(month_id: 4, year_id: 7).sum :target %></th>
+                  <th class="center"><%= Nretail.where(month_id: 4, year_id: 7).sum :number %></th>
+                  <th class="center"><%= (Nretail.where(month_id: 4, year_id: 7).sum :number)*100/(Nretail.where(month_id: 4, year_id: 7).sum :target) %></th>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
-
       </div>
+
+      <div class="row">
+        <%= line_chart @nretails.where(month_id: 4, year_id: 7).group(:network_id).sum(:number) %>
+      </div>
+
+      <div class="row">
+        <%= line_chart Model.group(:name).count %>
+      </div>
+
     </div>
   </div>
 
@@ -70,7 +76,7 @@
 
       <div class="row">
 
-        <div class="col-md-6">
+        <div class="col-md-8 col-md-offset-2">
           <div class="panel panel-default">
             <!-- Default panel contents -->
             <div class="panel-heading">Retail</div>
@@ -80,9 +86,9 @@
               <thead>
                 <tr>
                   <th>Network</th>
-                  <th>Apr14</th>
-                  <th>Apr15</th>
-                  <th>Var +/-</th>
+                  <th class="center">Apr14</th>
+                  <th class="center">Apr15</th>
+                  <th class="center">Var +/-</th>
                 </tr>
               </thead>
               <tbody>
@@ -90,17 +96,17 @@
                   <tr>
                     <td><%= link_to(network.name, network) %></td>
                     <% momc = Nretail.where(network_id: network, month_id: 4, year_id: 6).sum :number %>
-                    <td><%= momc %></td>
+                    <td class="center"><%= momc %></td>
                     <% retail = Nretail.where(network_id: network, month_id: 4, year_id: 7).sum :number %>
-                    <td><%= retail %></td>
-                    <td><%= retail - momc %></td>
+                    <td class="center"><%= retail %></td>
+                    <td class="center"><%= retail - momc %></td>
                   </tr>
                 <% end %>
                 <tr>
                   <th>Total</th>
-                  <th><%= Nretail.where(month_id: 4, year_id: 6).sum :number %></th>
-                  <th><%= Nretail.where(month_id: 4, year_id: 7).sum :number %></th>
-                  <th><%= (Nretail.where(month_id: 4, year_id: 7).sum :number)-(Nretail.where(month_id: 4, year_id: 6).sum :number) %></th>
+                  <th class="center"><%= Nretail.where(month_id: 4, year_id: 6).sum :number %></th>
+                  <th class="center"><%= Nretail.where(month_id: 4, year_id: 7).sum :number %></th>
+                  <th class="center"><%= (Nretail.where(month_id: 4, year_id: 7).sum :number)-(Nretail.where(month_id: 4, year_id: 6).sum :number) %></th>
                 </tr>
               </tbody>
             </table>
@@ -118,7 +124,7 @@
 
       <div class="row">
 
-        <div class="col-md-6">
+        <div class="col-md-8 col-md-offset-2">
           <div class="panel panel-default">
             <!-- Default panel contents -->
             <div class="panel-heading">Retail</div>
@@ -128,9 +134,9 @@
               <thead>
                 <tr>
                   <th>Network</th>
-                  <th>Mar14</th>
-                  <th>Apr15</th>
-                  <th>Var +/-</th>
+                  <th class="center">Mar14</th>
+                  <th class="center">Apr15</th>
+                  <th class="center">Var +/-</th>
                 </tr>
               </thead>
               <tbody>
@@ -138,17 +144,17 @@
                   <tr>
                     <td><%= link_to(network.name, network) %></td>
                     <% momc = Nretail.where(network_id: network, month_id: 3, year_id: 6).sum :number %>
-                    <td><%= momc %></td>
+                    <td class="center"><%= momc %></td>
                     <% retail = Nretail.where(network_id: network, month_id: 4, year_id: 7).sum :number %>
-                    <td><%= retail %></td>
-                    <td><%= retail - momc %></td>
+                    <td class="center"><%= retail %></td>
+                    <td class="center"><%= retail - momc %></td>
                   </tr>
                 <% end %>
                 <tr>
                   <th>Total</th>
-                  <th><%= Nretail.where(month_id: 3, year_id: 6).sum :number %></th>
-                  <th><%= Nretail.where(month_id: 4, year_id: 7).sum :number %></th>
-                  <th><%= (Nretail.where(month_id: 4, year_id: 7).sum :number)-(Nretail.where(month_id: 3, year_id: 6).sum :number) %></th>
+                  <th class="center"><%= Nretail.where(month_id: 3, year_id: 6).sum :number %></th>
+                  <th class="center"><%= Nretail.where(month_id: 4, year_id: 7).sum :number %></th>
+                  <th class="center"><%= (Nretail.where(month_id: 4, year_id: 7).sum :number)-(Nretail.where(month_id: 3, year_id: 6).sum :number) %></th>
                 </tr>
               </tbody>
             </table>
@@ -160,5 +166,6 @@
   </div>
 
   <div role="tabpanel" class="tab-pane" id="year">...</div>
+</div>
 </div>
 

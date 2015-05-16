@@ -8,4 +8,12 @@ class MonthsController < ApplicationController
   def show
     @months = Month.find(params[:id])
   end
+
+  private
+    def logged_in_user
+      unless user_signed_in?
+        flash[:danger] = "Please log in"
+        redirect_to root_path
+      end
+    end
 end

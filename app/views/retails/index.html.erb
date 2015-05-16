@@ -1,8 +1,38 @@
+<div id="retail-index">
 <h1>Dashboard</h1>
 <p><%= link_to('Home', root_path) %> / Dashboard</p>
 
-<p><%= link_to("Sales Executives", heads_path) %></p>
-<p><%= link_to("Networks", networks_path) %></p>
-<p><%= link_to("Models", models_path) %></p>
-<p><%= link_to("Months", months_path) %></p>
-<p><%= link_to("Years", years_path) %></p>
+<div class="container-fluid">
+  <div class="row buttons">
+    <div class="col-sm-2 col-sm-offset-1">
+      <p><%= link_to content_tag(:span, "", class: "glyphicon glyphicon-user"), heads_path %></p>
+      <p>Sales Executive</p>
+    </div>
+
+    <div class="col-sm-2">
+      <p><%= link_to content_tag(:span, "", class: "glyphicon glyphicon-link"), networks_path %></p>
+      <p>Network</p>
+    </div>
+
+    <div class="col-sm-2">
+      <p><%= link_to content_tag(:span, "", class: "glyphicon glyphicon-knight"), models_path %></p>
+      <p>Model</p>
+    </div>
+
+    <div class="col-sm-2">
+      <p><%= link_to content_tag(:span, "", class: "glyphicon glyphicon-list"), months_path %></p>
+      <p>Month</p>
+    </div>
+
+    <div class="col-sm-2">
+      <p><%= link_to content_tag(:span, "", class: "glyphicon glyphicon-yen"), years_path %></p>
+      <p>Year</p>
+    </div>
+
+  </div>
+</div>
+</div>
+
+
+
+

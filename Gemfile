@@ -18,6 +18,7 @@ gem 'devise'
 gem 'simple_form'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
+gem "chartkick"
 
 # gem 'bcrypt', '~> 3.1.7'
 # gem 'unicorn'
