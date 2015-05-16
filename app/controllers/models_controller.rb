@@ -1,5 +1,5 @@
 class ModelsController < ApplicationController
-  before_action :logged_in_user, only: [:new]
+  before_action :logged_in_user, only: [:new, :show, :index]
 
   def index
     @models = Model.all

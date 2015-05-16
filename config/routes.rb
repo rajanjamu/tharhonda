@@ -1,21 +1,21 @@
 Rails.application.routes.draw do
 
-  get 'years/index'
-
-  get 'months/index'
-
   devise_for :users
   resources :networks
   resources :heads
   resources :models
   resources :months
   resources :years
+  resources :retails do
+    collection do
+      get :manage
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'thars#index'
-  get 'home', to: 'landing#index'
+  root 'home#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,12 +1,16 @@
 <h2>Sales Executives</h2>
+<p><%= link_to('Home', root_path) %> / <%= link_to('Dashboard', retails_path) %> / Sales Executives</p>
 
-<% @heads.each do |head| %>
-  <li><%= link_to(head.name, head) %></li>
-<% end %>
+<ul class="nav nav-tabs" role="tablist" id="myTab">
+  <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+  <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+  <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+  <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+</ul>
 
-<% if user_signed_in? %>
-  <p><%= link_to "Create new", new_head_path %></p>
-<% end %>
-
-
-<p><%= link_to "Home", root_path %></p>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane active" id="home">...</div>
+  <div role="tabpanel" class="tab-pane" id="profile">...</div>
+  <div role="tabpanel" class="tab-pane" id="messages">...</div>
+  <div role="tabpanel" class="tab-pane" id="settings">...</div>
+</div>

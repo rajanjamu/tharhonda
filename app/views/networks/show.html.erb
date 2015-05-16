@@ -1,0 +1,27 @@
+<h2><%= @network.name %></h2>
+<p><%= link_to('Home', root_path) %> / <%= link_to('Dashboard', retails_path) %> / <%= link_to("Networks", networks_path) %> / <%= @network.name %></p>
+
+<ul class="nav nav-tabs" role="tablist" id="myTab">
+  <li role="presentation" class="active"><a href="#month" aria-controls="month" role="tab" data-toggle="tab">Month</a></li>
+  <li role="presentation"><a href="#year" aria-controls="year" role="tab" data-toggle="tab">Year</a></li>
+</ul>
+
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane active" id="month">
+    <div class="container-fluid">
+
+      <p></p>
+
+      <div class="row">
+        <div class="col-md-5">
+          <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Retail</div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div role="tabpanel" class="tab-pane" id="year">...</div>
+</div>

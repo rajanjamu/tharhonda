@@ -1,5 +1,5 @@
 class HeadsController < ApplicationController
-    before_action :logged_in_user, only: [:new]
+  before_action :logged_in_user, only: [:new, :index, :show]
 
   def index
     @heads = Head.all
@@ -19,7 +19,7 @@ class HeadsController < ApplicationController
   end
 
   def show
-    @heads = Head.find(params[:id])
+    @head = Head.find(params[:id])
   end
 
   private

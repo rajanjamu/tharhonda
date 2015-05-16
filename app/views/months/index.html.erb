@@ -1,7 +1,6 @@
 <h2>Months</h2>
+<p><%= link_to('Home', root_path) %> / <%= link_to('Dashboard', retails_path) %> / Months</p>
 
 <% @months.each do |month| %>
   <li><%= link_to(month.name, month) %></li>
 <% end %>
-
-<p><%= link_to "Home", root_path %></p>
