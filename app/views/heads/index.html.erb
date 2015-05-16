@@ -1,0 +1,12 @@
+<h2>Sales Executives</h2>
+
+<% @heads.each do |head| %>
+  <li><%= link_to(head.name, head) %></li>
+<% end %>
+
+<% if user_signed_in? %>
+  <p><%= link_to "Create new", new_head_path %></p>
+<% end %>
+
+
+<p><%= link_to "Home", root_path %></p>

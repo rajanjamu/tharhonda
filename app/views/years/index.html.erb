@@ -1,0 +1,7 @@
+<h2>Years</h2>
+
+<% @years.each do |year| %>
+  <li><%= link_to(year.name, year) %></li>
+<% end %>
+
+<p><%= link_to "Home", root_path %></p>

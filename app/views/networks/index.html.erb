@@ -1,0 +1,21 @@
+<h2>Networks</h2>
+
+<table>
+  <tr>
+    <th>Network</th>
+    <th>Retail</th>
+  </tr>
+  <% @networks.each do |network| %>
+    <tr>
+      <td><%= link_to(network.name, network) %></td>
+      <td><%= Nretail.where(network_id: network).sum :number %></td>
+    </tr>
+  <% end %>
+</table>
+
+<% if user_signed_in? %>
+  <p><%= link_to "Create new", new_network_path %></p>
+<% end %>
+
+
+<p><%= link_to "Home", root_path %></p>
